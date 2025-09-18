@@ -60,7 +60,7 @@ body {
 }
 
 html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -105,7 +105,8 @@ a {
     transition: all 0.2s ease;
 }
 
-a:hover {
+a:hover,
+a:active {
     color: var(--color-wood-800);
     text-decoration-color: var(--color-wood-600);
 }
@@ -133,7 +134,8 @@ a:visited {
     transition: box-shadow 0.2s ease;
 }
 
-.content-section:hover {
+.content-section:hover,
+.content-section:active {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
@@ -160,7 +162,8 @@ a:visited {
     color: var(--color-sage-400);
 }
 
-.section-anchor:hover::after{
+.section-anchor:hover::after,
+.section-anchor:active::after {
     opacity: 1;
 }
 
@@ -260,7 +263,8 @@ a:visited {
     transition: background-color 0.2s ease;
 }
 
-.speaking-row:hover {
+.speaking-row:hover,
+.speaking-row:active {
     background-color: var(--color-stone-50);
 }
 
