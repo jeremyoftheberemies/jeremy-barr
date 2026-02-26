@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+
+{{ $research := where .Site.RegularPages "Params.research" true }}
+{{ range $research.ByDate.Reverse }}
+<div class="research-item">
+    <div class="research-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+    <div class="post-meta">{{ .Params.event_type }} · {{ .Params.venue }}</div>
+    <div class="post-meta">{{ .Params.location }} · {{ .Params.event_dates }}</div>
+    <div class="post-meta">{{ .Params.authors }}</div>
+    {{ if .Summary }}
+    <p class="research-abstract">{{ .Summary | truncate 250 }}</p>
+    {{ end }}
+</div>
+{{ end }}
+{{ end }}

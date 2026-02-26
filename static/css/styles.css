@@ -1,0 +1,418 @@
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Courier New', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --bg: #fafafa;
+  --bg-code: #f0f0f0;
+  --fg: #1a1a1a;
+  --fg-muted: #666;
+  --fg-faint: #999;
+  --link: #1a1a1a;
+  --link-hover: #0066cc;
+  --border: #ddd;
+  --max-width: 640px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --bg-code: #1a1a1a;
+    --fg: #e0e0e0;
+    --fg-muted: #999;
+    --fg-faint: #666;
+    --link: #e0e0e0;
+    --link-hover: #6cb6ff;
+    --border: #333;
+  }
+}
+
+/* Base */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s;
+}
+
+a:hover {
+  text-decoration-color: var(--link-hover);
+  color: var(--link-hover);
+}
+
+/* Header / Nav */
+.site-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: var(--fg);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.site-nav a {
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--fg);
+}
+
+.icon {
+  vertical-align: -2px;
+}
+
+/* Post list (index page) */
+.post-list {
+  list-style: none;
+}
+
+.post-item {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.post-date {
+  font-size: 0.8125rem;
+  color: var(--fg-faint);
+  font-family: var(--font-mono);
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.post-link {
+  font-size: 0.9375rem;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+.post-link:hover {
+  color: var(--link-hover);
+}
+
+/* Section headings on index */
+.section-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-heading:first-child {
+  margin-top: 0;
+}
+
+/* Article / Post page */
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  font-size: 0.8125rem;
+  color: var(--fg-faint);
+  font-family: var(--font-mono);
+}
+
+.archive-notice {
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+  border-left: 3px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.archive-notice p {
+  margin: 0;
+}
+
+.post-body {
+  line-height: 1.7;
+}
+
+.post-body h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-body p {
+  margin-bottom: 1rem;
+}
+
+.post-body ul,
+.post-body ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.post-body li {
+  margin-bottom: 0.25rem;
+}
+
+.post-body blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--fg-muted);
+  font-style: italic;
+}
+
+.post-body blockquote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.post-body figure {
+  margin: 1.5rem 0;
+}
+
+.post-body figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.video-embed {
+  margin: 1.5rem 0;
+}
+
+.video-embed iframe {
+  border-radius: 2px;
+}
+
+.downloads {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.downloads h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.downloads p {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.post-body code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-code);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.post-body pre {
+  background: var(--bg-code);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  margin: 1rem 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* About page */
+.about-section {
+  margin-bottom: 2rem;
+}
+
+.about-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.about-section p {
+  margin-bottom: 0.75rem;
+  color: var(--fg-muted);
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-section li {
+  margin-bottom: 0.25rem;
+  padding-left: 1rem;
+  position: relative;
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+}
+
+.about-section li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--fg-faint);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--fg-faint);
+}
+
+/* Archive page grouping by year */
+.archive-year {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.archive-year:first-child {
+  margin-top: 0;
+}
+
+/* Page title */
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+/* Research */
+.research-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.research-item:last-child {
+  border-bottom: none;
+}
+
+.research-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.research-abstract {
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+  }
+}

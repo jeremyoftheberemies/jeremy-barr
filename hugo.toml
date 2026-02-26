@@ -1,0 +1,23 @@
+baseURL = "https://www.jeremybarr.ca/"
+languageCode = "en-ca"
+title = "Jeremy Barr"
+theme = "jb"
+
+# No RSS, sitemap, etc. — keep it minimal
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT", "404"]
+
+[params]
+  email = "jeremybarr@trentu.ca"
+  github = "https://github.com/jeremyoftheberemies"
+  linkedin = "https://www.linkedin.com/in/j-barr/"
+
+# Pretty URLs: /posts/slug/ (no .html extension)
+[permalinks]
+  posts = "/posts/:contentbasename/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = false

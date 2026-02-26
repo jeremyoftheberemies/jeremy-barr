@@ -1,0 +1,42 @@
+{{ define "main" }}
+<article>
+    <header class="post-header">
+        <h1 class="post-title">{{ .Title }}</h1>
+        {{ if .Params.research }}
+        <div class="post-meta">{{ .Params.event_type }} · {{ .Params.venue }}</div>
+        <div class="post-meta">{{ .Params.location }} · {{ .Params.event_dates }}</div>
+        <div class="post-meta">{{ .Params.authors }}</div>
+        {{ else }}
+        <div class="post-meta">{{ .Date.Format "2006-01-02" }}</div>
+        {{ end }}
+    </header>
+    {{ if .Params.archive_notice }}
+    <div class="archive-notice">
+        <p>{{ .Params.archive_notice }}</p>
+    </div>
+    {{ end }}
+    <div class="post-body">
+        {{ .Content }}
+    </div>
+    {{ if .Params.downloads }}
+    <div class="downloads">
+        <h3>Downloads</h3>
+        {{ range .Params.downloads }}
+        <p><a href="{{ .url }}">{{ .label }}</a> ({{ .format }})</p>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{ if .Params.pdf }}
+    <div class="downloads">
+        <h3>Downloads</h3>
+        <p><a href="{{ .Params.pdf }}">Abstract Book</a> (PDF)</p>
+    </div>
+    {{ end }}
+</article>
+{{ end }}
+
+{{ define "footer" }}
+<footer class="site-footer">
+    <a href="/">← back</a>
+</footer>
+{{ end }}
